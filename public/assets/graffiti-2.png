@@ -1,0 +1,8 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="1080" fill="#05080B"/>
+  <g opacity="0.25">
+    <text x="200" y="300" font-family="Impact, Arial Black" font-size="160" fill="#FF0055" transform="rotate(12 400 300)">GRAFFITI</text>
+    <text x="900" y="550" font-family="Impact, Arial Black" font-size="190" fill="#00F0FF" transform="rotate(-7 1100 550)">VIBES</text>
+    <text x="300" y="850" font-family="Impact, Arial Black" font-size="140" fill="#FFD60A" transform="rotate(4 500 850)">HIP-HOP</text>
+  </g>
+</svg>

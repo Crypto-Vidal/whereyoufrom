@@ -101,7 +101,7 @@ class ShoppingCart {
       id: card.dataset.id || Math.random().toString(36).substr(2, 9),
       name: card.querySelector('.product-name')?.textContent || 'Product',
       price: parseFloat(card.querySelector('.product-price')?.textContent.replace('$', '') || '0'),
-      image: card.querySelector('.product-image')?.src || '/public/assets/placeholder-shirt.png',
+      image: card.querySelector('.product-image')?.src || '../../public/assets/placeholder-shirt.png',
       size: card.querySelector('.product-size-select')?.value || 'M',
       quantity: 1
     };
@@ -208,7 +208,7 @@ class ShoppingCart {
 
     container.innerHTML = this.cart.map(item => `
       <div class="cart-item cart-item-add" data-id="${item.id}" data-size="${item.size}">
-        <img src="${item.image}" alt="${item.name}" class="cart-item-image" onerror="this.src='/public/assets/placeholder-shirt.png'">
+        <img src="${item.image}" alt="${item.name}" class="cart-item-image" onerror="this.src='../../public/assets/placeholder-shirt.png'">
         <div class="cart-item-details">
           <h4 class="cart-item-name">${item.name}</h4>
           <p class="cart-item-size">Size: ${item.size}</p>

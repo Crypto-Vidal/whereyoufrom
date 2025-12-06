@@ -10,7 +10,7 @@ const PRODUCTS = [
     name: 'Urban Legends Tee',
     description: 'Premium heavyweight cotton with graffiti-inspired print',
     price: 65,
-    image: '/public/assets/shirt-1.png',
+    image: '../../public/assets/shirt-1.png',
     badge: 'NEW DROP',
     category: 'graphic'
   },
@@ -19,7 +19,7 @@ const PRODUCTS = [
     name: 'Shadow Ops Tee',
     description: 'Dark aesthetic meets street culture',
     price: 70,
-    image: '/public/assets/shirt-2.png',
+    image: '../../public/assets/shirt-2.png',
     badge: 'LIMITED',
     category: 'graphic'
   },
@@ -28,7 +28,7 @@ const PRODUCTS = [
     name: 'Neon Nights Tee',
     description: 'Reflective print with neon accents',
     price: 75,
-    image: '/public/assets/shirt-3.png',
+    image: '../../public/assets/shirt-3.png',
     badge: 'HOT',
     category: 'graphic'
   },
@@ -37,7 +37,7 @@ const PRODUCTS = [
     name: 'Smoke Signal Tee',
     description: 'Minimalist design with maximum impact',
     price: 60,
-    image: '/public/assets/shirt-4.png',
+    image: '../../public/assets/shirt-4.png',
     badge: null,
     category: 'minimal'
   },
@@ -46,7 +46,7 @@ const PRODUCTS = [
     name: 'Street Cipher Tee',
     description: 'Hidden messages in graffiti code',
     price: 68,
-    image: '/public/assets/shirt-5.png',
+    image: '../../public/assets/shirt-5.png',
     badge: 'NEW',
     category: 'graphic'
   },
@@ -55,7 +55,7 @@ const PRODUCTS = [
     name: 'Midnight Run Tee',
     description: 'Night culture collection piece',
     price: 72,
-    image: '/public/assets/shirt-6.png',
+    image: '../../public/assets/shirt-6.png',
     badge: 'EXCLUSIVE',
     category: 'graphic'
   },
@@ -64,7 +64,7 @@ const PRODUCTS = [
     name: 'Concrete Jungle Tee',
     description: 'Urban exploration meets fashion',
     price: 65,
-    image: '/public/assets/shirt-7.png',
+    image: '../../public/assets/shirt-7.png',
     badge: null,
     category: 'minimal'
   },
@@ -73,7 +73,7 @@ const PRODUCTS = [
     name: 'Skyline Kings Tee',
     description: 'City silhouette with neon highlights',
     price: 70,
-    image: '/public/assets/shirt-8.png',
+    image: '../../public/assets/shirt-8.png',
     badge: 'TRENDING',
     category: 'graphic'
   }
@@ -240,7 +240,7 @@ class StreetWearApp {
     return `
       <div class="product-card tilt-card" data-id="${product.id}" data-category="${product.category}">
         <div class="product-image-wrapper">
-          <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='/public/assets/placeholder-shirt.png'">
+          <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='../../public/assets/placeholder-shirt.png'">
           <div class="product-graffiti-overlay"></div>
           ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
         </div>
@@ -320,7 +320,7 @@ class StreetWearApp {
 
     container.innerHTML = cartItems.map(item => `
       <div class="cart-page-item">
-        <img src="${item.image}" alt="${item.name}" class="cart-page-item-image" onerror="this.src='/public/assets/placeholder-shirt.png'">
+        <img src="${item.image}" alt="${item.name}" class="cart-page-item-image" onerror="this.src='../../public/assets/placeholder-shirt.png'">
         <div class="cart-page-item-details">
           <h3>${item.name}</h3>
           <p>Size: ${item.size}</p>
@@ -395,7 +395,7 @@ class StreetWearApp {
     document.querySelectorAll('img').forEach(img => {
       img.addEventListener('error', function() {
         if (!this.dataset.fallbackApplied) {
-          this.src = '/public/assets/placeholder-shirt.png';
+          this.src = '../../public/assets/placeholder-shirt.png';
           this.dataset.fallbackApplied = 'true';
         }
       });

@@ -1,0 +1,9 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="1080" fill="#05080B"/>
+  <g opacity="0.3">
+    <text x="100" y="200" font-family="Impact, Arial Black" font-size="180" fill="#00F0FF" transform="rotate(-5 300 200)">URBAN</text>
+    <text x="800" y="400" font-family="Impact, Arial Black" font-size="200" fill="#FF0055" transform="rotate(8 1000 400)">STREET</text>
+    <text x="400" y="700" font-family="Impact, Arial Black" font-size="150" fill="#FFD60A" transform="rotate(-3 600 700)">CULTURE</text>
+    <text x="1200" y="900" font-family="Impact, Arial Black" font-size="120" fill="#00F0FF" transform="rotate(5 1300 900)">LEGENDS</text>
+  </g>
+</svg>
