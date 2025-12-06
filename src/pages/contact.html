@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - STREETWEAR CO.</title>
+  <meta name="description" content="Get in touch with STREETWEAR CO.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <style>
+    .contact-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/public/assets/graffiti-2.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      mix-blend-mode: overlay;
+    }
+
+    .contact-form-container {
+      background: var(--color-dark-gray);
+      border: 2px solid var(--color-light-gray);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-form-container:hover {
+      border-color: var(--color-neon-cyan);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info-card {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(255, 0, 85, 0.1));
+      border: 2px solid var(--color-neon-cyan);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-method {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      font-size: 2.5rem;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    .contact-details h4 {
+      margin-bottom: 0.5rem;
+      color: var(--color-neon-cyan);
+    }
+
+    .contact-details p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo" id="logo">STREETWEAR</div>
+
+      <ul class="nav-links">
+        <li><a href="./index.html">HOME</a></li>
+        <li><a href="./shop.html">SHOP</a></li>
+        <li><a href="./drops.html">DROPS</a></li>
+        <li><a href="./size.html">SIZE GUIDE</a></li>
+        <li><a href="./about.html">ABOUT</a></li>
+        <li><a href="./contact.html">CONTACT</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <div class="cart-icon">
+          🛒
+          <span class="cart-count" style="display: none;">0</span>
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <h1 style="font-size: clamp(3.5rem, 10vw, 8rem); margin-bottom: 1rem;" class="fade-in">
+        <span class="text-gradient">GET IN TOUCH</span>
+      </h1>
+      <p style="font-size: 1.4rem; max-width: 600px; margin: 0 auto; opacity: 0.9;" class="fade-in">
+        Questions, collaborations, or just want to say what's up?
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Form & Info -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: start;">
+
+        <!-- Contact Form -->
+        <div class="contact-form-container scroll-reveal">
+          <h2 style="margin-bottom: 1.5rem;">
+            <span class="text-neon-cyan">SEND A MESSAGE</span>
+          </h2>
+
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">YOUR NAME</label>
+              <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+              <label for="email">EMAIL ADDRESS</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+
+            <div class="form-group">
+              <label for="subject">SUBJECT</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="order">Order Question</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="wholesale">Wholesale</option>
+                <option value="artist">Artist Submission</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">MESSAGE</label>
+              <textarea id="message" name="message" required placeholder="Tell us what's on your mind..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.2rem; padding: 1.2rem;">
+              SEND MESSAGE 🚀
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info-card scroll-reveal" style="animation-delay: 0.1s;">
+          <div>
+            <h2 style="margin-bottom: 1rem;">
+              <span class="text-gradient">CONNECT</span>
+            </h2>
+            <p style="opacity: 0.8; line-height: 1.8;">
+              We're always down to connect with the community.
+              Hit us up for questions, collabs, or just to talk streetwear.
+            </p>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h4>EMAIL</h4>
+              <p>hello@streetwearco.com</p>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">📱</div>
+            <div class="contact-details">
+              <h4>SOCIAL</h4>
+              <p>@streetwearco on all platforms</p>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h4>LOCATION</h4>
+              <p>Brooklyn, NY<br>Where the culture lives</p>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">⏰</div>
+            <div class="contact-details">
+              <h4>RESPONSE TIME</h4>
+              <p>Usually within 24-48 hours</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section section-dark">
+    <div class="container-narrow">
+      <h2 class="text-center" style="margin-bottom: 3rem;">
+        <span class="text-gradient">QUICK ANSWERS</span>
+      </h2>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div class="card">
+          <h3 style="color: var(--color-neon-cyan); margin-bottom: 0.5rem;">
+            🚚 How long is shipping?
+          </h3>
+          <p>
+            We ship worldwide with free shipping on all orders. Domestic (US) orders
+            typically arrive in 3-5 business days. International orders take 7-14 business days.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-neon-cyan); margin-bottom: 0.5rem;">
+            💳 What payment methods do you accept?
+          </h3>
+          <p>
+            We accept all major credit cards (Visa, Mastercard, Amex), PayPal,
+            Apple Pay, and Google Pay for a secure checkout experience.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-neon-cyan); margin-bottom: 0.5rem;">
+            ↩️ What's your return policy?
+          </h3>
+          <p>
+            We offer a 30-day return policy for unworn, unwashed items with original tags.
+            Just email us at returns@streetwearco.com to start the process.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-neon-cyan); margin-bottom: 0.5rem;">
+            🎨 Can I submit my art for collaboration?
+          </h3>
+          <p>
+            Absolutely! We love working with street artists and designers.
+            Send your portfolio to collabs@streetwearco.com with the subject "Artist Submission."
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-neon-cyan); margin-bottom: 0.5rem;">
+            🔥 Will sold-out items restock?
+          </h3>
+          <p>
+            Nope. All our drops are limited edition and never restock. Once they're gone,
+            they're gone forever. Follow us for early access to new drops.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-neon-cyan); margin-bottom: 0.5rem;">
+            📏 How do I find my size?
+          </h3>
+          <p>
+            Check out our <a href="./size.html" style="color: var(--color-neon-cyan);">Smart Size Guide</a>
+            - answer 3 quick questions and we'll recommend your perfect fit!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="container-narrow text-center">
+      <h2 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem;">
+        PREFER TO <span class="text-neon-cyan">SHOP</span>?
+      </h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;">
+        Check out our latest drops and limited edition pieces
+      </p>
+      <a href="./shop.html" class="btn btn-primary" style="font-size: 1.3rem; padding: 1.2rem 2.5rem;">
+        EXPLORE THE COLLECTION
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>STREETWEAR CO.</h4>
+          <p style="opacity: 0.7; line-height: 1.8;">
+            Premium urban fashion inspired by hip-hop culture, graffiti art,
+            and the energy of the streets.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>SHOP</h4>
+          <ul class="footer-links">
+            <li><a href="./shop.html">All Products</a></li>
+            <li><a href="./drops.html">New Drops</a></li>
+            <li><a href="./size.html">Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>COMPANY</h4>
+          <ul class="footer-links">
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>CONNECT</h4>
+          <ul class="footer-links">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 STREETWEAR CO. All rights reserved. Built with street culture energy.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/navigation.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/sizing.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - STREETWEAR CO.</title>
+  <meta name="description" content="Shop premium streetwear t-shirts - Limited drops and exclusive designs">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo" id="logo">STREETWEAR</div>
+
+      <ul class="nav-links">
+        <li><a href="./index.html">HOME</a></li>
+        <li><a href="./shop.html">SHOP</a></li>
+        <li><a href="./drops.html">DROPS</a></li>
+        <li><a href="./size.html">SIZE GUIDE</a></li>
+        <li><a href="./about.html">ABOUT</a></li>
+        <li><a href="./contact.html">CONTACT</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <div class="cart-icon">
+          🛒
+          <span class="cart-count" style="display: none;">0</span>
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="section" style="padding-top: 120px; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h1 style="font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 1rem;">
+          <span class="text-gradient">THE COLLECTION</span>
+        </h1>
+        <p style="font-size: 1.3rem; opacity: 0.8;">
+          Premium streetwear. Limited quantities. Authentic culture.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  <section class="container">
+    <div class="filter-bar fade-in">
+      <div class="filter-group">
+        <label class="filter-label">CATEGORY:</label>
+        <select class="filter-select" id="categoryFilter">
+          <option value="all">All Styles</option>
+          <option value="graphic">Graphic Tees</option>
+          <option value="minimal">Minimal</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label">SORT BY:</label>
+        <select class="filter-select" id="sortFilter">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="name">Name: A-Z</option>
+        </select>
+      </div>
+
+      <div class="filter-group" style="margin-left: auto;">
+        <a href="./size.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+          📏 FIND YOUR SIZE
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Grid with Spotlight Effect -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3 spotlight-container" id="productGrid">
+        <!-- Products will be dynamically inserted here by main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="section section-dark">
+    <div class="container">
+      <h2 class="text-center" style="margin-bottom: 3rem;">
+        <span class="text-gradient">WHY STREETWEAR CO.</span>
+      </h2>
+
+      <div class="grid grid-3">
+        <div class="card text-center scroll-reveal">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🔥</div>
+          <h3 style="margin-bottom: 1rem; color: var(--color-neon-cyan);">LIMITED DROPS</h3>
+          <p>Exclusive designs in limited quantities. Never mass-produced, always authentic.</p>
+        </div>
+
+        <div class="card text-center scroll-reveal" style="animation-delay: 0.1s;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">💎</div>
+          <h3 style="margin-bottom: 1rem; color: var(--color-neon-cyan);">PREMIUM QUALITY</h3>
+          <p>Heavyweight cotton, premium prints, built to last through the streets.</p>
+        </div>
+
+        <div class="card text-center scroll-reveal" style="animation-delay: 0.2s;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
+          <h3 style="margin-bottom: 1rem; color: var(--color-neon-cyan);">STREET CULTURE</h3>
+          <p>Every piece is inspired by graffiti, hip-hop, and urban exploration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>STREETWEAR CO.</h4>
+          <p style="opacity: 0.7; line-height: 1.8;">
+            Premium urban fashion inspired by hip-hop culture, graffiti art,
+            and the energy of the streets.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>SHOP</h4>
+          <ul class="footer-links">
+            <li><a href="./shop.html">All Products</a></li>
+            <li><a href="./drops.html">New Drops</a></li>
+            <li><a href="./size.html">Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>COMPANY</h4>
+          <ul class="footer-links">
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>CONNECT</h4>
+          <ul class="footer-links">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 STREETWEAR CO. All rights reserved. Built with street culture energy.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/navigation.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/sizing.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

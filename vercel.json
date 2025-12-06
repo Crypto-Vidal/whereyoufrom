@@ -1,0 +1,23 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/src/pages/index.html" },
+    { "source": "/index.html", "destination": "/src/pages/index.html" },
+    { "source": "/shop.html", "destination": "/src/pages/shop.html" },
+    { "source": "/drops.html", "destination": "/src/pages/drops.html" },
+    { "source": "/size.html", "destination": "/src/pages/size.html" },
+    { "source": "/about.html", "destination": "/src/pages/about.html" },
+    { "source": "/cart.html", "destination": "/src/pages/cart.html" },
+    { "source": "/contact.html", "destination": "/src/pages/contact.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

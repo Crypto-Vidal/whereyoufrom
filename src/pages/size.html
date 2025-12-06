@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Size Guide - STREETWEAR CO.</title>
+  <meta name="description" content="Find your perfect fit with our Smart Size quiz">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <style>
+    /* Size Quiz Specific Styles */
+    .quiz-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .quiz-section {
+      background: var(--color-dark-gray);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      border: 2px solid var(--color-light-gray);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .size-option {
+      background: var(--color-gray);
+      border: 2px solid var(--color-light-gray);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: var(--transition-base);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .size-option:hover {
+      border-color: var(--color-neon-cyan);
+      background: rgba(0, 240, 255, 0.05);
+      transform: translateX(10px);
+    }
+
+    .size-option.selected {
+      border-color: var(--color-neon-cyan);
+      background: rgba(0, 240, 255, 0.1);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    }
+
+    .size-option-icon {
+      font-size: 2rem;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .size-option-content h4 {
+      margin-bottom: 0.3rem;
+      color: var(--color-white);
+    }
+
+    .size-option-content p {
+      font-size: 0.95rem;
+      opacity: 0.7;
+      margin: 0;
+    }
+
+    .result-card {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(255, 0, 85, 0.1));
+      border: 3px solid var(--color-neon-cyan);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .result-size {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 15vw, 10rem);
+      color: var(--color-neon-cyan);
+      text-shadow: var(--shadow-neon-cyan);
+      line-height: 1;
+      margin: 1rem 0;
+    }
+
+    .result-confidence {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+    }
+
+    .measurements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .measurement-item {
+      background: var(--color-dark-gray);
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-light-gray);
+    }
+
+    .measurement-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 0.5rem;
+    }
+
+    .measurement-value {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--color-neon-cyan);
+    }
+
+    .fit-meter {
+      margin: 2rem 0;
+      position: relative;
+    }
+
+    .fit-meter-track {
+      height: 12px;
+      background: var(--color-gray);
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fit-meter-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-neon-cyan), var(--color-neon-red));
+      width: 100%;
+    }
+
+    .fit-meter-indicator {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      width: 28px;
+      height: 28px;
+      background: var(--color-neon-cyan);
+      border: 3px solid var(--color-black);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      transition: left 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      box-shadow: var(--shadow-neon-cyan);
+    }
+
+    .fit-meter-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .size-chart-table {
+      width: 100%;
+      background: var(--color-dark-gray);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+
+    .size-chart-table th,
+    .size-chart-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--color-light-gray);
+    }
+
+    .size-chart-table th {
+      background: var(--color-gray);
+      font-family: var(--font-display);
+      color: var(--color-neon-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .size-chart-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .size-chart-table tr:hover {
+      background: rgba(0, 240, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo" id="logo">STREETWEAR</div>
+
+      <ul class="nav-links">
+        <li><a href="./index.html">HOME</a></li>
+        <li><a href="./shop.html">SHOP</a></li>
+        <li><a href="./drops.html">DROPS</a></li>
+        <li><a href="./size.html">SIZE GUIDE</a></li>
+        <li><a href="./about.html">ABOUT</a></li>
+        <li><a href="./contact.html">CONTACT</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <div class="cart-icon">
+          🛒
+          <span class="cart-count" style="display: none;">0</span>
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="section" style="padding-top: 120px; padding-bottom: 2rem;">
+    <div class="container text-center">
+      <h1 style="font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 1rem;">
+        <span class="text-gradient">SMART SIZE</span>
+      </h1>
+      <p style="font-size: 1.3rem; opacity: 0.8;">
+        Find your perfect fit in 3 questions
+      </p>
+    </div>
+  </section>
+
+  <!-- Size Quiz -->
+  <section class="section" id="sizeQuiz">
+    <div class="quiz-container">
+
+      <!-- Quiz Intro -->
+      <div class="quiz-section fade-in" id="quizIntro">
+        <div class="text-center">
+          <div style="font-size: 5rem; margin-bottom: 1.5rem;">📏</div>
+          <h2 style="margin-bottom: 1rem;">FIND YOUR FIT</h2>
+          <p style="font-size: 1.1rem; margin-bottom: 2.5rem; opacity: 0.9;">
+            Answer 3 quick questions and we'll recommend your perfect size based on
+            your measurements and fit preference.
+          </p>
+          <button class="btn btn-primary" id="startQuizBtn" style="font-size: 1.2rem; padding: 1rem 2.5rem;">
+            START QUIZ
+          </button>
+        </div>
+      </div>
+
+      <!-- Question 1: Height -->
+      <div class="quiz-section hidden" id="question1">
+        <h2 style="margin-bottom: 0.5rem;">WHAT'S YOUR HEIGHT?</h2>
+        <p style="opacity: 0.7; margin-bottom: 2rem;">Select the range that matches you</p>
+
+        <div class="size-option" data-height="short">
+          <div class="size-option-icon">📐</div>
+          <div class="size-option-content">
+            <h4>Under 5'7"</h4>
+            <p>Shorter frame</p>
+          </div>
+        </div>
+
+        <div class="size-option" data-height="average">
+          <div class="size-option-icon">📏</div>
+          <div class="size-option-content">
+            <h4>5'7" - 6'0"</h4>
+            <p>Average height</p>
+          </div>
+        </div>
+
+        <div class="size-option" data-height="tall">
+          <div class="size-option-icon">📊</div>
+          <div class="size-option-content">
+            <h4>Over 6'0"</h4>
+            <p>Taller frame</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2: Chest Size -->
+      <div class="quiz-section hidden" id="question2">
+        <h2 style="margin-bottom: 0.5rem;">CHEST MEASUREMENT?</h2>
+        <p style="opacity: 0.7; margin-bottom: 2rem;">Measure around the fullest part of your chest</p>
+
+        <div class="size-option" data-chest="slim">
+          <div class="size-option-icon">🔹</div>
+          <div class="size-option-content">
+            <h4>Under 38"</h4>
+            <p>Slimmer build</p>
+          </div>
+        </div>
+
+        <div class="size-option" data-chest="average">
+          <div class="size-option-icon">🔸</div>
+          <div class="size-option-content">
+            <h4>38" - 42"</h4>
+            <p>Average build</p>
+          </div>
+        </div>
+
+        <div class="size-option" data-chest="broad">
+          <div class="size-option-icon">🔶</div>
+          <div class="size-option-content">
+            <h4>Over 42"</h4>
+            <p>Broader build</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 3: Fit Preference -->
+      <div class="quiz-section hidden" id="question3">
+        <h2 style="margin-bottom: 0.5rem;">HOW DO YOU LIKE YOUR FIT?</h2>
+        <p style="opacity: 0.7; margin-bottom: 2rem;">Choose your preferred streetwear style</p>
+
+        <div class="size-option" data-fit="slim">
+          <div class="size-option-icon">✨</div>
+          <div class="size-option-content">
+            <h4>Slim Fit</h4>
+            <p>Tailored, close to body, modern cut</p>
+          </div>
+        </div>
+
+        <div class="size-option" data-fit="regular">
+          <div class="size-option-icon">🎯</div>
+          <div class="size-option-content">
+            <h4>Regular Fit</h4>
+            <p>Classic streetwear, comfortable room</p>
+          </div>
+        </div>
+
+        <div class="size-option" data-fit="oversized">
+          <div class="size-option-icon">🔥</div>
+          <div class="size-option-content">
+            <h4>Oversized</h4>
+            <p>Relaxed, roomy drop, true streetwear</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Result -->
+      <div class="quiz-section hidden" id="quizResult">
+        <div class="result-card">
+          <h2 style="margin-bottom: 1rem;">YOUR PERFECT SIZE</h2>
+
+          <div class="result-size" id="resultSize">M</div>
+
+          <div class="result-confidence">
+            <span style="color: var(--color-neon-cyan);" id="resultConfidence">95%</span> confidence match
+          </div>
+
+          <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;" id="resultFit">
+            Classic streetwear fit
+          </p>
+
+          <!-- Fit Meter -->
+          <div class="fit-meter">
+            <div class="fit-meter-track">
+              <div class="fit-meter-fill"></div>
+              <div class="fit-meter-indicator" id="fitMeterIndicator"></div>
+            </div>
+            <div class="fit-meter-labels">
+              <span>SLIM</span>
+              <span>REGULAR</span>
+              <span>OVERSIZED</span>
+            </div>
+          </div>
+
+          <!-- Measurements -->
+          <h3 style="margin: 2.5rem 0 1.5rem; color: var(--color-neon-cyan);">SIZE MEASUREMENTS</h3>
+          <div class="measurements-grid">
+            <div class="measurement-item">
+              <div class="measurement-label">Chest</div>
+              <div class="measurement-value" id="measureChest">38-40"</div>
+            </div>
+            <div class="measurement-item">
+              <div class="measurement-label">Length</div>
+              <div class="measurement-value" id="measureLength">29"</div>
+            </div>
+            <div class="measurement-item">
+              <div class="measurement-label">Shoulders</div>
+              <div class="measurement-value" id="measureShoulders">19"</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="./shop.html" class="btn btn-primary">SHOP YOUR SIZE</a>
+            <button class="btn btn-secondary" id="restartQuizBtn">RETAKE QUIZ</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Size Chart -->
+  <section class="section section-dark">
+    <div class="container-narrow">
+      <h2 class="text-center" style="margin-bottom: 2rem;">
+        <span class="text-gradient">FULL SIZE CHART</span>
+      </h2>
+
+      <table class="size-chart-table">
+        <thead>
+          <tr>
+            <th>SIZE</th>
+            <th>CHEST (IN)</th>
+            <th>LENGTH (IN)</th>
+            <th>SHOULDERS (IN)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XS</strong></td>
+            <td>34-36"</td>
+            <td>27"</td>
+            <td>17"</td>
+          </tr>
+          <tr>
+            <td><strong>S</strong></td>
+            <td>36-38"</td>
+            <td>28"</td>
+            <td>18"</td>
+          </tr>
+          <tr>
+            <td><strong>M</strong></td>
+            <td>38-40"</td>
+            <td>29"</td>
+            <td>19"</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong></td>
+            <td>40-42"</td>
+            <td>30"</td>
+            <td>20"</td>
+          </tr>
+          <tr>
+            <td><strong>XL</strong></td>
+            <td>42-44"</td>
+            <td>31"</td>
+            <td>21"</td>
+          </tr>
+          <tr>
+            <td><strong>XXL</strong></td>
+            <td>44-46"</td>
+            <td>32"</td>
+            <td>22"</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 240, 255, 0.05); border-left: 4px solid var(--color-neon-cyan); border-radius: var(--radius-md);">
+        <h4 style="margin-bottom: 0.5rem; color: var(--color-neon-cyan);">💡 FIT TIPS</h4>
+        <p>All measurements are taken laid flat. For streetwear style, we recommend sizing up for an oversized look. Our premium heavyweight cotton (6.5 oz) is pre-shrunk for consistent sizing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>STREETWEAR CO.</h4>
+          <p style="opacity: 0.7; line-height: 1.8;">
+            Premium urban fashion inspired by hip-hop culture, graffiti art,
+            and the energy of the streets.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>SHOP</h4>
+          <ul class="footer-links">
+            <li><a href="./shop.html">All Products</a></li>
+            <li><a href="./drops.html">New Drops</a></li>
+            <li><a href="./size.html">Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>COMPANY</h4>
+          <ul class="footer-links">
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>CONNECT</h4>
+          <ul class="footer-links">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 STREETWEAR CO. All rights reserved. Built with street culture energy.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/navigation.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/sizing.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STREETWEAR CO. - Premium Urban Fashion</title>
+  <meta name="description" content="Premium streetwear t-shirts with graffiti aesthetics and hip-hop culture vibes">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo" id="logo">STREETWEAR</div>
+
+      <ul class="nav-links">
+        <li><a href="./index.html">HOME</a></li>
+        <li><a href="./shop.html">SHOP</a></li>
+        <li><a href="./drops.html">DROPS</a></li>
+        <li><a href="./size.html">SIZE GUIDE</a></li>
+        <li><a href="./about.html">ABOUT</a></li>
+        <li><a href="./contact.html">CONTACT</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <div class="cart-icon">
+          🛒
+          <span class="cart-count" style="display: none;">0</span>
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Smoky Parallax -->
+  <section class="hero">
+    <!-- Smoke Layers -->
+    <div class="hero-smoke">
+      <div class="smoke-layer" data-speed="0.3"></div>
+      <div class="smoke-layer" data-speed="0.5"></div>
+      <div class="smoke-layer" data-speed="0.7"></div>
+    </div>
+
+    <!-- Graffiti Background -->
+    <div class="hero-graffiti parallax-layer" data-speed="0.2"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <h1 class="hero-title">URBAN LEGENDS</h1>
+      <p class="hero-subtitle">PREMIUM STREETWEAR</p>
+      <div class="hero-cta">
+        <a href="./shop.html" class="btn btn-primary">SHOP NOW</a>
+        <a href="./drops.html" class="btn btn-secondary">VIEW DROPS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center scroll-reveal" style="margin-bottom: 3rem;">
+        <span class="text-gradient">FEATURED DROPS</span>
+      </h2>
+
+      <div class="grid grid-4 spotlight-container" id="featuredProducts">
+        <!-- Products will be dynamically inserted here -->
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="./shop.html" class="btn btn-ghost">VIEW ALL PRODUCTS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Culture Section -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+        <div class="scroll-reveal-left">
+          <h2 style="margin-bottom: 1.5rem;">
+            STREET <span class="text-neon-cyan">CULTURE</span>
+          </h2>
+          <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+            Born from the concrete jungles and neon-lit nights. Every piece tells a story
+            of urban exploration, hip-hop heritage, and the raw energy of the streets.
+          </p>
+          <p style="line-height: 1.8; margin-bottom: 2rem;">
+            We blend graffiti aesthetics with premium quality, creating wearable art
+            that represents the culture, the hustle, and the dream.
+          </p>
+          <a href="./about.html" class="btn btn-secondary">OUR STORY</a>
+        </div>
+
+        <div class="scroll-reveal-right">
+          <div style="
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(255, 0, 85, 0.1));
+            border: 2px solid var(--color-neon-cyan);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+          ">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🔥</div>
+            <h3 style="margin-bottom: 1rem; color: var(--color-neon-cyan);">LIMITED DROPS</h3>
+            <p style="font-size: 1.1rem;">Exclusive releases. Never restocked. Once they're gone, they're gone forever.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="section">
+    <div class="container-narrow text-center">
+      <div class="scroll-reveal-scale">
+        <h2 style="font-size: clamp(2.5rem, 8vw, 5rem); margin-bottom: 1.5rem;">
+          JOIN THE <span class="text-gradient">MOVEMENT</span>
+        </h2>
+        <p style="font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.9;">
+          Get early access to drops, exclusive discounts, and street culture updates.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; max-width: 600px; margin: 0 auto;">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            style="flex: 1; min-width: 250px;"
+          >
+          <button class="btn btn-primary">SUBSCRIBE</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>STREETWEAR CO.</h4>
+          <p style="opacity: 0.7; line-height: 1.8;">
+            Premium urban fashion inspired by hip-hop culture, graffiti art,
+            and the energy of the streets.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>SHOP</h4>
+          <ul class="footer-links">
+            <li><a href="./shop.html">All Products</a></li>
+            <li><a href="./drops.html">New Drops</a></li>
+            <li><a href="./size.html">Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>COMPANY</h4>
+          <ul class="footer-links">
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>CONNECT</h4>
+          <ul class="footer-links">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 STREETWEAR CO. All rights reserved. Built with street culture energy.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/navigation.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/sizing.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/main.js"></script>
+
+</body>
+</html>
